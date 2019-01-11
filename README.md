@@ -1,2 +1,2 @@
 # webpack-boilerplate
-A basic setup for webpack, including babel and sass transpilation.
+This is a minimal setup for webpack, it includes transpiling and bundling javascript.
