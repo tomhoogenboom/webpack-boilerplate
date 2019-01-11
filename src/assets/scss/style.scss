@@ -1,0 +1,10 @@
+$bg-color: lightslategrey;
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: $bg-color;
+}
