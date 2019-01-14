@@ -6,7 +6,9 @@ const cssConfig = {
   filename: 'style.[contenthash].css'
 }
 
-module.exports = merge(common, {
+module.exports = merge.strategy({
+  'module.rules': 'prepend'
+})(common, {
   mode: 'production',
   output: {
     filename: '[name].[hash].js'
@@ -19,11 +21,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.(sc|c)ss$/,
-        use: [
-          MiniCssExtractPlugin.loader, // now we here
-          'css-loader',
-          'sass-loader' // starting from the bottom
-        ]
+        use: MiniCssExtractPlugin.loader
       }
     ]
   }
