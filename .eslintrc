@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [],
+  "extends": [
+    "standard"
+  ],
+  "rules": {
+    "lines-between-class-members": 2,
+    "no-useless-escape": 2,
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ]
+  }
+}

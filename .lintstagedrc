@@ -1,0 +1,6 @@
+{
+  "src/app/**/*.js": [
+    "eslint --fix",
+    "git add"
+  ]
+}
