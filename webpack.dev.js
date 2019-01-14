@@ -2,10 +2,7 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common')
 
-module.exports = merge.strategy({
-  //This makes sure that the css loader gets used before the css loaders from the common config
-  'module.rules': 'prepend'
-})(common, {
+module.exports = merge(common, {
   mode: 'development',
   output: {
     filename: '[name].js'
@@ -23,7 +20,19 @@ module.exports = merge.strategy({
     rules: [
       {
         test: /\.(sc|c)ss$/,
-        use: 'style-loader'
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [require('autoprefixer')({
+                'browsers': ['> 1%', 'last 2 versions']
+              })]
+            }
+          },
+          'sass-loader'
+        ]
       }
     ]
   }

@@ -24,21 +24,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.(sc|c)ss$/,
-        use: [
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [require('autoprefixer')({
-                'browsers': ['> 1%', 'last 2 versions']
-              })]
-            }
-          },
-          'sass-loader'
-        ]
       }
     ]
   }
