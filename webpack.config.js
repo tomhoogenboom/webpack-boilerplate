@@ -8,6 +8,10 @@ const htmlConfig = {
   template: './src/index.html'
 }
 
+const cssConfig = {
+  filename: 'style.[contenthash].css'
+}
+
 module.exports = {
   entry: './src/app/index.js',
   output: {
@@ -17,7 +21,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
     new HtmlWebpackPlugin(htmlConfig),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(cssConfig)
   ],
   module: {
     rules: [
