@@ -1,14 +1,21 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const htmlConfig = {
+  title: 'Webpack Boilerplate',
+  template: './src/index.html'
+}
 
 module.exports = {
   entry: './src/app/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].[hash].js'
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']) // Cleans the dist folder before every build
+    new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
+    new HtmlWebpackPlugin(htmlConfig)
   ],
   module: {
     rules: [
