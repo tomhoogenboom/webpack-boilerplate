@@ -1,4 +1,5 @@
 const path = require('path')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   entry: './src/app/index.js',
@@ -6,6 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist']) // Cleans the dist folder before every build
+  ],
   module: {
     rules: [
       {
@@ -18,9 +22,9 @@ module.exports = {
       {
         test: /\.(sc|c)ss$/,
         use: [
-          'style-loader',
+          'style-loader', // now we here
           'css-loader',
-          'sass-loader'
+          'sass-loader' // starting from the bottom
         ]
       }
     ]
