@@ -24,6 +24,22 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          outputPath: 'assets/fonts'
+        }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
+          outputPath: 'assets/images'
+        }
       }
     ]
   }
