@@ -1,6 +1,7 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const htmlConfig = {
   title: 'Webpack Boilerplate',
@@ -15,7 +16,8 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
-    new HtmlWebpackPlugin(htmlConfig)
+    new HtmlWebpackPlugin(htmlConfig),
+    new MiniCssExtractPlugin()
   ],
   module: {
     rules: [
@@ -30,6 +32,7 @@ module.exports = {
         test: /\.(sc|c)ss$/,
         use: [
           'style-loader', // now we here
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader' // starting from the bottom
         ]
