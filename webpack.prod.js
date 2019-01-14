@@ -7,6 +7,7 @@ const cssConfig = {
 }
 
 module.exports = merge.strategy({
+  //This makes sure that the css loader gets used before the css loaders from the common config
   'module.rules': 'prepend'
 })(common, {
   mode: 'production',
