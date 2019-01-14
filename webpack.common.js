@@ -1,15 +1,10 @@
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const htmlConfig = {
   title: 'Webpack Boilerplate',
   template: './src/index.html'
-}
-
-const cssConfig = {
-  filename: 'style.[contenthash].css'
 }
 
 module.exports = {
@@ -19,8 +14,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
-    new HtmlWebpackPlugin(htmlConfig),
-    new MiniCssExtractPlugin(cssConfig)
+    new HtmlWebpackPlugin(htmlConfig)
   ],
   module: {
     rules: [
@@ -30,15 +24,6 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      },
-      {
-        test: /\.(sc|c)ss$/,
-        use: [
-          'style-loader', // now we here
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader' // starting from the bottom
-        ]
       }
     ]
   }
