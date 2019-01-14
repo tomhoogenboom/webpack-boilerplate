@@ -15,8 +15,7 @@ const cssConfig = {
 module.exports = {
   entry: './src/app/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js'
+    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
