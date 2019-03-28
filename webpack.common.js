@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']), // Cleans the dist folder before every build
+    new CleanWebpackPlugin(), // Cleans the dist folder before every build
     new HtmlWebpackPlugin(htmlConfig)
   ],
   module: {
