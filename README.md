@@ -4,7 +4,7 @@ This is a minimal webpack configuration to quickly start a project.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
 ### Prerequisites
 To run the application on your local machine you need to have [Node.js](https://nodejs.org/) installed. It is also required to have [Yarn](https://yarnpkg.com) installed globally.
