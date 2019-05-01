@@ -15,25 +15,5 @@ module.exports = merge(common, {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ],
-  module: {
-    rules: [
-      {
-        test: /\.(sc|c)ss$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [require('autoprefixer')({
-                'browsers': ['> 1%', 'last 2 versions']
-              })]
-            }
-          },
-          'sass-loader'
-        ]
-      }
-    ]
-  }
+  ]
 })
