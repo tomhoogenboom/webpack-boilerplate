@@ -2,6 +2,8 @@ const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
 const devMode = process.env.NODE_ENV !== 'production'
 const htmlConfig = {
   title: 'Webpack Boilerplate',
@@ -15,12 +17,16 @@ const cssConfig = {
 module.exports = {
   entry: './src/app/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: ''
   },
   plugins: [
     new CleanWebpackPlugin(), // Cleans the dist folder before every build
     new HtmlWebpackPlugin(htmlConfig),
-    new MiniCssExtractPlugin(cssConfig)
+    new CopyPlugin([
+      { from: './src/assets/images', to: 'assets/images' }
+    ]),
+    new MiniCssExtractPlugin(cssConfig),
   ],
   module: {
     rules: [
